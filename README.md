@@ -6,8 +6,9 @@
 **Participants**: 
 - Customer (WhatsApp user)
 - Clinic Executive Bot
-- Google Sheets CRM
+- CRM
 - Consultation System
+- Automatic Follow up after 24 hr.
 
 ---
 
@@ -161,6 +162,19 @@
            ↓
            [End Event]
     └─ NO → [Task] AI: Politely Decline & Redirect
+           ↓
+           [End Event]
+```
+
+### Stage 8: Autmatic Follow UP
+```
+[Task] AI: Analyze User Last stage and based on the last stage it send the reminder message to user and ask to share the or complete the remaining steps.
+    ↓
+[Check if all 7 stages are completed]
+    ├─ YES → [Task] AI: Skip the message flow
+           ↓
+           [End Event]
+    └─ NO → [Task] AI: Check the user current stage status and based on that send the relevant message to user, if it's been an 48 hr, then it identifies the lead and marks its tag as handled by executive
            ↓
            [End Event]
 ```
